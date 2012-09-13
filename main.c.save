@@ -1,0 +1,63 @@
+#include "main.h"
+
+int main()
+{
+    const char e = '\x82', ee = '\x8A', eee = '\x88', a = '\x85' ; // e <=> 'é' ; ee <=> 'è' ; eee <=> 'ê' ; a <=> 'à'
+    int i = 0, nb_track = 0 ;
+    char buffer[100] = "", chemin_fichier[100] = "", nom_sortie[100] = "" ;
+    FILE *bpm = NULL, *liste = NULL ;
+
+    /**INITIALISATIONS**/
+
+    /**INFORMATIONS**/
+    system("CLS") ;
+    printf("\t\t\t\tBPM -> CSV\n\n") ;
+    printf("\n\n\t\t\tProgramme r%dalis%c pour windows...\n\n", e, e) ;
+    printf("\tProgramme permettant d'envoyer les BPM calcul%cs avec le logiciel\nBPM Analyzer dans une feuille de calcul excel.\n\n", e) ;
+    printf("\tPour cela, utiliser BPM Analyzer puis enregistrer les BPM dans\nun fichier texte. Placer ce fichier texte dans le dossier d'%cx%ccution du\nprogramme.\n", e, e) ;
+
+    /**FICHIER A LIRE**/
+    printf("\n\tEntrez le nom du fichier (ex: BPM.txt) :\n\t\t") ;
+    do
+    {
+        fgets(buffer, 99, stdin) ;
+    }
+    while (!sscanf(buffer, "%s", chemin_fichier)) ;
+    bpm = fopen(chemin_fichier, "r") ;
+    if (bpm == NULL)
+    {
+        printf("\n\n\n\tImpossible d'ouvrir le fichier, veuillez v%crifier le nom et l'extension.\n\n", e) ;
+        system("PAUSE") ;
+        exit(EXIT_FAILURE) ;
+    }
+
+    /**FICHIER A CREER**/
+    printf("\n\n\tEntrez %c pr%csent le nom de la feuille de calcul r%csultante :\n\t\t", a, e, e) ;
+    do
+    {
+        fgets(buffer, 999, stdin) ;
+    }
+    while (!sscanf(buffer, "%s", nom_sortie)) ;
+    sprintf(nom_sortie, "%s.csv", nom_sortie) ;
+    liste = fopen(nom_sortie, "w+") ;
+    if (liste == NULL)
+    {
+        printf("\n\n\n\tImpossible de cr%cer un fichier de sortie...\n\n", e) ;
+        system("PAUSE") ;
+        exit(EXIT_FAILURE) ;
+    }
+
+    /**PROGRAMME PRINCIPAL**/
+    fprintf(liste, "Artiste, Titre, 
+    nb_track = compter_tracks(bpm) ;
+    for (i=0 ; i<nb_tracks ; i++)
+    {
+        ecrire_tags(liste, bpm) ;
+    }
+
+
+    /**FIN DU PROGRAMME ET LIBERATIONS DE MEMOIRES**/
+    printf("\n\nFin !!\n\n") ;
+    system("PAUSE") ;
+    return EXIT_SUCCESS ;
+}

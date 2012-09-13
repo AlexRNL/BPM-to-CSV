@@ -1,0 +1,11 @@
+#ifndef MAINH
+#define MAINH
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+#include "fonctions.h"
+
+#endif
