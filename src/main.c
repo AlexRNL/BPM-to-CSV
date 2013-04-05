@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
@@ -7,21 +7,21 @@
 
 int main()
 {
-    const char e = '\x82', a = '\x85' ; // e <=> '�' ; ee <=> '�' ; eee <=> '�' ; a <=> '�'
+    const char e = '\x82', a = '\x85' ; // e <=> 'é' ; ee <=> 'è' ; eee <=> 'ê' ; a <=> 'à'
     int i = 0, nb_track = 0 ;
     char buffer[100] = "", chemin_fichier[100] = "", nom_sortie[100] = "", stock = ' ' ;
     FILE *bpm = NULL, *liste = NULL ;
 
-    /**INITIALISATIONS**/
+    /** INITIALISATIONS **/
 
-    /**INFORMATIONS**/
+    /** INFORMATIONS **/
     system ("CLS") ;
     printf ("\t\t\t\tBPM -> CSV\n\n") ;
     printf ("\n\n\tProgramme r%calis%c pour windows...\n\n", e, e) ;
     printf ("\tProgramme permettant d'envoyer les BPM calcul%cs avec le logiciel\nBPM Analyzer dans une feuille de calcul excel associ%c au titre et %c l'artiste.\n\n", e, e, a) ;
     printf ("\tPour cela, utiliser BPM Analyzer puis enregistrer les BPM dans\nun fichier texte. Placer ce fichier texte dans le dossier d'%cx%ccution du\nprogramme.\n", e, e) ;
 
-    /**FICHIER A LIRE**/
+    /** FICHIER À LIRE **/
     printf ("\n\tEntrez le nom du fichier (ex: BPM Club Rock.txt) :\n\t\t") ;
     fgets (buffer, 99, stdin) ;
     i = 0 ;
@@ -37,7 +37,7 @@ int main()
             exit (EXIT_FAILURE) ;
         }
 
-    /**FICHIER A CREER**/
+    /** FICHIER À CREER **/
     printf ("\n\n\tEntrez %c pr%csent le nom de la feuille de calcul r%csultante :\n\t\t", a, e, e) ;
     fgets (buffer, 99, stdin) ;
     i = 0 ;
@@ -54,7 +54,7 @@ int main()
             exit (EXIT_FAILURE) ;
         }
 
-    /**PROGRAMME PRINCIPAL**/
+    /** PROGRAMME PRINCIPAL **/
     fprintf (liste, "Artiste; Titre; BPM\n") ;
     nb_track = compter_tracks (bpm) ;
     rewind (bpm) ;
@@ -64,7 +64,7 @@ int main()
         }
 
 
-    /**FIN DU PROGRAMME ET LIBERATIONS DE MEMOIRES**/
+    /** FIN DU PROGRAMME ET LIBÉRATIONS DE MEMOIRES **/
     fclose (bpm) ;
     fclose (liste) ;
     printf ("\n\nFin !!\n\n") ;

@@ -1,4 +1,4 @@
-#ifndef FONCTIONSH
+﻿#ifndef FONCTIONSH
 #define FONCTIONSH
 
 // Prototype des fonctions :

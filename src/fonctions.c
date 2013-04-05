@@ -1,4 +1,4 @@
-#include "main.h"
+ï»¿#include "main.h"
 
 //Fonction qui renvoie le nombre de chansons dans le fichier BPM :
 int compter_tracks (FILE *bpm)
@@ -16,20 +16,20 @@ int compter_tracks (FILE *bpm)
     return nb_tracks ;
 }
 
-//Fonction qui écrit les tags d'un chanson dans le .csv :
+//Fonction qui Ã©crit les tags d'un chanson dans le .csv :
 void ecrire_tags (FILE *liste, FILE *bpm)
 {
     int n_bpm = 0 ;
     float f_bpm = 0.0 ;
     char titre[1000] = "", artiste[1000] = "" ;
 
-    avancer_fichier (bpm) ; //On fait avancer le curseur virtuel jusqu'à avoir passer le chemin du mp3.
+    avancer_fichier (bpm) ; //On fait avancer le curseur virtuel jusqu'Ã  avoir passer le chemin du mp3.
     fscanf_tab (bpm, titre) ; //On scanne le titre.
     fscanf_tab (bpm, artiste) ; //On scanne l'artiste.
     fscanf (bpm, "%f\n", &f_bpm) ; //On scanne le BPM.
     arrondir (&f_bpm, 2) ; //On arrondit les BPM.
     n_bpm = (int) f_bpm ;
-    fprintf (liste, "%s; %s; %f\n", artiste, titre, f_bpm) ; //On écrit le tout dans le fichier .csv.
+    fprintf (liste, "%s; %s; %f\n", artiste, titre, f_bpm) ; //On Ã©crit le tout dans le fichier .csv.
 }
 
 //Fonction qui arrondit un float :
@@ -46,13 +46,13 @@ void arrondir (float *mise, int precision)
         }
 }
 
-//Fonction qui fait avancer le curseur jusqu'après le chemin (après le ".mp3" :
+//Fonction qui fait avancer le curseur jusqu'aprÃ¨s le chemin (aprÃ¨s le ".mp3" :
 void avancer_fichier (FILE *fichier)
 {
     int i ;
     char stock[5] = "" ;
 
-    //On prends les premier caractères pour tester une première fois :
+    //On prends les premier caractÃ¨res pour tester une premiÃ¨re fois :
     for (i = 0 ; i < 4 ; i++)
         {
             stock[i] = getc (fichier) ;
@@ -70,7 +70,7 @@ void avancer_fichier (FILE *fichier)
     stock[0] = getc (fichier) ;
 }
 
-//Fonction qui scanne le titre (ou l'artiste) en entier jusqu'à la pochaine tabulation
+//Fonction qui scanne le titre (ou l'artiste) en entier jusqu'Ã  la pochaine tabulation
 void fscanf_tab (FILE *fichier, char champs[])
 {
     char stock = ' ' ;
