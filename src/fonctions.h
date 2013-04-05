@@ -1,7 +1,7 @@
 #ifndef FONCTIONSH
 #define FONCTIONSH
 
-//Prototype des fonctions :
+// Prototype des fonctions :
 int compter_tracks (FILE *bpm) ;
 void ecrire_tags (FILE *liste, FILE *bpm) ;
 void arrondir (float *mise, int precision) ;
