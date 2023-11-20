@@ -1,4 +1,6 @@
-﻿#include "main.h"
+﻿#include "fonctions.h"
+#include <math.h>
+#include <string.h>
 
 //Fonction qui renvoie le nombre de chansons dans le fichier BPM :
 int compter_tracks (FILE *bpm)
