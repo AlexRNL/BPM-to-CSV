@@ -76,6 +76,8 @@ void fscanf_tab (FILE *fichier, char champs[])
     char stock = ' ' ;
     while ( (stock = (char) getc (fichier)) != '\t')
         {
-            sprintf (champs, "%s%c", champs, stock) ;
+            char stock_str[2];
+            sprintf (stock_str, "%c", stock) ;
+            strcat (champs, stock_str) ;
         }
 }
