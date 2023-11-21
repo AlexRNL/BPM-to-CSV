@@ -25,7 +25,7 @@ int main()
     i = 0 ;
     while ((stock = buffer[i++]) != '\0' && stock != '\n' )
     {
-        sprintf(chemin_fichier, "%s%c", chemin_fichier, stock) ;
+        append_char(chemin_fichier, stock) ;
     }
     bpm = fopen (chemin_fichier, "r") ;
     if (bpm == NULL)
@@ -37,11 +37,11 @@ int main()
 
     /** FICHIER À CREER **/
     printf ("\n\n\tEntrez %c pr%csent le nom de la feuille de calcul r%csultante :\n\t\t", a, e, e) ;
-    fgets (buffer, 99, stdin) ;
+    fgets (buffer, 96, stdin) ;
     i = 0 ;
     while ((stock = buffer[i++]) != EOF && stock != '\n' )
     {
-        sprintf(nom_sortie, "%s%c", nom_sortie, stock) ;
+        append_char(nom_sortie, stock) ;
     }
     sprintf (nom_sortie, "%s.csv", nom_sortie) ;
     liste = fopen (nom_sortie, "w+") ;

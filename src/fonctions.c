@@ -76,8 +76,14 @@ void fscanf_tab (FILE *fichier, char champs[])
     char stock = ' ' ;
     while ( (stock = (char) getc (fichier)) != '\t')
         {
-            char stock_str[2];
-            sprintf (stock_str, "%c", stock) ;
-            strcat (champs, stock_str) ;
+            append_char (champs, stock) ;
         }
+}
+
+// Fonction qui ajoute un caractère à une chaîne
+void append_char(char *dest, char c)
+{
+    size_t len = strlen(dest) ;
+    dest[len] = c ;
+    dest[len+1] = '\0' ;
 }
