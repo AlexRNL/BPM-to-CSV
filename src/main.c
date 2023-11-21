@@ -7,7 +7,7 @@ int main()
 {
     const char e = '\x82', a = '\x85' ; // e <=> 'é' ; ee <=> 'è' ; eee <=> 'ê' ; a <=> 'à'
     int i = 0, nb_track = 0 ;
-    char buffer[100] = "", chemin_fichier[100] = "", nom_sortie[100] = "", stock = ' ' ;
+    char buffer[100] = "", chemin_fichier[100] = "", nom_sortie[100] = "", nom_sortie_brut[96] = "", stock = ' ' ;
     FILE *bpm = NULL, *liste = NULL ;
 
     /** INITIALISATIONS **/
@@ -41,9 +41,9 @@ int main()
     i = 0 ;
     while ((stock = buffer[i++]) != EOF && stock != '\n' )
     {
-        append_char(nom_sortie, stock) ;
+        append_char(nom_sortie_brut, stock) ;
     }
-    sprintf (nom_sortie, "%s.csv", nom_sortie) ;
+    sprintf (nom_sortie, "%s.csv", nom_sortie_brut) ;
     liste = fopen (nom_sortie, "w+") ;
     if (liste == NULL)
         {
